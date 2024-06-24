@@ -11,40 +11,37 @@ class Person
   end
 
   def run
+    puts "Welcome to the Body check CLI!"
+    print "What is your name? "
+    self.first_name = gets.chomp.capitalize!
+    print "What is your last name? "
+    self.last_name = gets.chomp.capitalize!
+    puts "\n"
+    puts "Hi #{@first_name} #{@last_name}! What would you like to do today?"
+    check
+  end
+
+  def check
     loop do
       puts "\n"
-      puts "Welcome to the Body check CLI!"
-      puts "1. Enter your data"
-      puts "2. Calculate your body mass index"
-      puts "3. Calculate your calorie intake"
-      puts "4. Exit"
+      puts "1. Calculate your body mass index"
+      puts "2. Calculate your calorie intake"
+      puts "3. Exit"
       print "Choose an option: "
       option = gets.chomp.to_i
       puts "\n"
       case option
       when 1
-        add_data
-      when 2
         body_mass
-      when 3
+      when 2
         calorie_intake
-      when 4
-        puts "See you in a bit!"
-        break
+      when 3
+          puts "See you in a bit!"
+          break
       else
-        puts "Enter a number from 1 to 4."
+          puts "Enter a number from 1 to 3."
       end
     end
-  end
-
-  private
-
-  def add_data
-    print "What is your name? "
-    self.first_name = gets.chomp
-    print "What is your last name? "
-    self.last_name = gets.chomp
-    puts "Your data is recorded!"
   end
 
   def body_mass
@@ -55,13 +52,14 @@ class Person
     w = weight.to_f
     h = height.to_f
     bmi = w / (h**2)
+    puts "\n"
     if bmi < 18.5
-    puts "#{@first_name}, you have an underweight. Your body mass index is #{bmi}. \n Calculate your calorie intake to adjust your weight."
+      puts "#{@first_name}, you have an underweight. Your body mass index is #{bmi}. Calculate your calorie intake to adjust your weight."
     elsif (bmi >= 18.5) && (bmi <= 24.9)
-    puts "#{@first_name}, congratulations! You have a normal weight. Your body mass index is #{bmi}."
+      puts "#{@first_name}, congratulations! You have a normal weight. Your body mass index is #{bmi}."
     else
-    puts "#{@first_name}, you have an overweight. Your body mass index is #{bmi}. \n Calculate your calorie intake to adjust your weight."
-    end
-    
+      puts "#{@first_name}, you have an overweight. Your body mass index is #{bmi}. Calculate your calorie intake to adjust your weight."
+    end  
   end
+
 end
