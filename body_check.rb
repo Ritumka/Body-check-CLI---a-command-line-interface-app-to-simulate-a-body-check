@@ -64,7 +64,7 @@ class Person
     weight = gets.chomp
     w = weight.to_f
     calories = (w * 15).round(0)
-    puts "#{@first_name}, your average calorie intake is #{calories} per day. You should eat less to loose weight and more to gain it."
+    puts "#{@first_name}, your average calorie intake is #{calories} per day. You should eat less to lose weight and more to gain it."
   end
 
 end
