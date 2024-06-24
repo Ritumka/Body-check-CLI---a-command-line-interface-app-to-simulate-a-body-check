@@ -37,6 +37,7 @@ class Person
         calorie_intake
       when 3
           puts "Stay healthy and see you in a bit!"
+          puts "\n"
           break
       else
           puts "Enter a number from 1 to 3."

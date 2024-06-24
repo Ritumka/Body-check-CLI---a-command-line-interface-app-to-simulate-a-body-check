@@ -1,6 +1,6 @@
-# Garage-CLI
+# Body check-CLI
 
-A command line interface app to simulate a valet using a parking garage.
+A command line interface app to simulate a body check.
 
 ## Usage
 
