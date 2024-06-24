@@ -36,7 +36,7 @@ class Person
       when 2
         calorie_intake
       when 3
-          puts "See you in a bit!"
+          puts "Stay healthy and see you in a bit!"
           break
       else
           puts "Enter a number from 1 to 3."
@@ -47,11 +47,11 @@ class Person
   def body_mass
     print "#{@first_name}, what is your weight in pounds? "
     weight = gets.chomp
-    print "#{@first_name}, what is your height in feet? "
+    print "#{@first_name}, what is your height in inches? "
     height = gets.chomp
     w = weight.to_f
     h = height.to_f
-    bmi = w / (h**2)
+    bmi = (w / (h**2) * 703).round(1)
     puts "\n"
     if bmi < 18.5
       puts "#{@first_name}, you have an underweight. Your body mass index is #{bmi}. Calculate your calorie intake to adjust your weight."
@@ -60,6 +60,14 @@ class Person
     else
       puts "#{@first_name}, you have an overweight. Your body mass index is #{bmi}. Calculate your calorie intake to adjust your weight."
     end  
+  end
+
+  def calorie_intake
+    print "#{@first_name}, what is your weight in pounds? "
+    weight = gets.chomp
+    w = weight.to_f
+    calories = (w * 15).round(0)
+    puts "#{@first_name}, your average calorie intake is #{calories} per day. You should eat less to loose weight and more to gain it."
   end
 
 end
