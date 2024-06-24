@@ -9,9 +9,9 @@ class Person
   def run
     puts "Welcome to the Body check CLI!"
     print "What is your name? "
-    self.first_name = gets.chomp.capitalize!
+    @first_name = gets.chomp.capitalize!
     print "What is your last name? "
-    self.last_name = gets.chomp.capitalize!
+    @last_name = gets.chomp.capitalize!
     puts "\n"
     puts "Hi #{@first_name} #{@last_name}! What would you like to do today?"
     check
