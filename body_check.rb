@@ -6,10 +6,6 @@ class Person
     @last_name = last_name
   end
 
-  def to_s
-    "#{@first_name}, #{@last_name}"
-  end
-
   def run
     puts "Welcome to the Body check CLI!"
     print "What is your name? "
@@ -36,7 +32,7 @@ class Person
       when 2
         calorie_intake
       when 3
-          puts "Stay healthy and see you in a bit!"
+          puts "Stay healthy #{@first_name}, and see you in a bit!"
           puts "\n"
           break
       else
