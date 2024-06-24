@@ -1,8 +1,14 @@
-require_relative "person"
-
 class Body_check
-  def initialize
-    @person = []
+  attr_accessor :name, :weight, :height
+
+  def initialize(name, weight, height)
+    @name = name
+    @weight = weight
+    @height = height
+  end
+
+  def to_s
+    "#{@name}, #{@weight}, #{@weight}"
   end
 
   def run
@@ -41,14 +47,14 @@ class Body_check
     weight = gets.chomp
     print "What is your height in feet? "
     height = gets.chomp
-    @person << Person.new(name, weight, height)
+    @body_check << Body_check.new(name, weight, height)
     puts "Your data is recorded!"
   end
 
   def body_mass
-    w = weight.to_f
-    h = height.to_f
-    bmi = w / h**2
+    w = @weight
+    h = @height
+    bmi = w / (h**2)
     if bmi < 18.5
     puts "#{@name}, you have an underweight. Your body mass index is #{bmi}. \n Calculate your calorie intake to adjust your weight."
     elsif (bmi >= 18.5) && (bmi <= 24.9)
