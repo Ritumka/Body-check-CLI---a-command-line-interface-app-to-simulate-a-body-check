@@ -1,14 +1,13 @@
-class Body_check
-  attr_accessor :name, :weight, :height
+class Person
+  attr_accessor :first_name, :last_name
 
-  def initialize(name, weight, height)
-    @name = name
-    @weight = weight
-    @height = height
+  def initialize
+    @first_name = first_name
+    @last_name = last_name
   end
 
   def to_s
-    "#{@name}, #{@weight}, #{@weight}"
+    "#{@first_name}, #{@last_name}"
   end
 
   def run
@@ -42,25 +41,26 @@ class Body_check
 
   def add_data
     print "What is your name? "
-    name = gets.chomp
-    print "What is your weight in pounds? "
-    weight = gets.chomp
-    print "What is your height in feet? "
-    height = gets.chomp
-    @body_check << Body_check.new(name, weight, height)
+    self.first_name = gets.chomp
+    print "What is your last name? "
+    self.last_name = gets.chomp
     puts "Your data is recorded!"
   end
 
   def body_mass
-    w = @weight
-    h = @height
+    print "#{@first_name}, what is your weight in pounds? "
+    weight = gets.chomp
+    print "#{@first_name}, what is your height in feet? "
+    height = gets.chomp
+    w = weight.to_f
+    h = height.to_f
     bmi = w / (h**2)
     if bmi < 18.5
-    puts "#{@name}, you have an underweight. Your body mass index is #{bmi}. \n Calculate your calorie intake to adjust your weight."
+    puts "#{@first_name}, you have an underweight. Your body mass index is #{bmi}. \n Calculate your calorie intake to adjust your weight."
     elsif (bmi >= 18.5) && (bmi <= 24.9)
-    puts "#{@name}, congratulations! You have a normal weight. Your body mass index is #{bmi}."
+    puts "#{@first_name}, congratulations! You have a normal weight. Your body mass index is #{bmi}."
     else
-    puts "#{@name}, you have an overweight. Your body mass index is #{bmi}. \n Calculate your calorie intake to adjust your weight."
+    puts "#{@first_name}, you have an overweight. Your body mass index is #{bmi}. \n Calculate your calorie intake to adjust your weight."
     end
     
   end
